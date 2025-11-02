@@ -189,6 +189,7 @@
     const sidebar = document.getElementById('sidebar');
     const sidebarLinks = document.querySelectorAll('.sidebar-link');
     const footer = document.querySelector('.site-footer');
+    const navbarCollapse = document.getElementById('mainNav');
 
     // Hàm scroll section vào giữa màn hình
     function scrollToCenter(targetSection) {
@@ -211,6 +212,22 @@
     sidebarToggleBtn.addEventListener('click', () => {
       sidebar.classList.toggle('active');
       sidebarToggleBtn.classList.toggle('active');
+
+      // Đóng navbar nếu đang mở khi bật sidebar
+      if (sidebar.classList.contains('active') && navbarCollapse.classList.contains('show')) {
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+          toggle: false
+        });
+        bsCollapse.hide();
+      }
+    });
+
+    // Đóng sidebar khi navbar được mở (trên mobile)
+    navbarCollapse.addEventListener('show.bs.collapse', () => {
+      if (sidebar.classList.contains('active')) {
+        sidebar.classList.remove('active');
+        sidebarToggleBtn.classList.remove('active');
+      }
     });
 
     // Xử lý click vào link sidebar để scroll mục vào giữa màn hình
