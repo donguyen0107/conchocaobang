@@ -101,20 +101,23 @@
             border-color: rgba(212, 175, 55, 0.5);
         }
 
-        /* Scene Selector */
+        /* Scene Selector - 3 Cảnh */
         .scene-selector {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
             margin-top: 2rem;
             padding: 0 1rem;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .scene-btn {
             background: rgba(212, 175, 55, 0.1);
             border: 2px solid #d4af37;
             color: #d4af37;
-            padding: 1.2rem 1.5rem;
+            padding: 1.5rem 1.5rem;
             border-radius: 15px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -127,17 +130,17 @@
         }
 
         .scene-btn i {
-            font-size: 2rem;
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
         }
 
         .scene-btn .scene-name {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             font-weight: 700;
         }
 
         .scene-btn .scene-desc {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             opacity: 0.8;
             font-weight: 400;
         }
@@ -292,23 +295,24 @@
             }
 
             .scene-selector {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
 
             .scene-btn {
-                padding: 1rem;
+                padding: 1.2rem;
             }
 
             .scene-btn i {
-                font-size: 1.5rem;
+                font-size: 2rem;
             }
 
             .scene-btn .scene-name {
-                font-size: 0.95rem;
+                font-size: 1rem;
             }
 
             .scene-btn .scene-desc {
-                font-size: 0.75rem;
+                font-size: 0.8rem;
             }
 
             .current-scene h3 {
@@ -322,7 +326,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top site-navbar">
         <div class="container">
-            <a class="navbar-brand site-name" href="index.html">Time Capsule</a>
+            <a class="navbar-brand site-name" href="index.html">Kính lúp thời gian</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
                 <span class="navbar-toggler-icon"></span>
@@ -364,7 +368,7 @@
     <section class="hero-3d">
         <div class="container">
             <h1><i class="fas fa-vr-cardboard me-3"></i>Tham Quan 360°</h1>
-            <p>Khám phá Đình Thần An Khánh qua 6 góc nhìn khác nhau. Chọn cảnh bên dưới để khám phá từng không gian.</p>
+            <p>Khám phá Đình Thần An Khánh qua 3 không gian khác nhau. Chọn cảnh bên dưới để khám phá.</p>
         </div>
     </section>
 
@@ -374,8 +378,8 @@
             <!-- Current Scene Title -->
             <div class="current-scene" id="current-scene-title">
                 <h3>
-                    <i class="fas fa-torii-gate"></i>
-                    <span id="scene-title-text">Lối Vào</span>
+                    <i class="fas fa-square"></i>
+                    <span id="scene-title-text">Trước Đình</span>
                 </h3>
             </div>
 
@@ -385,7 +389,7 @@
                     <iframe
                         class="polycam-embed"
                         id="polycam-frame"
-                        src="https://poly.cam/capture/769D7D25-E4F2-45B7-8B03-2BF286AD3CC6/embed"
+                        src="https://poly.cam/capture/261EA429-A440-410E-89FF-B7110262FF4F/embed"
                         frameborder="0"
                         allowfullscreen
                         allow="xr-spatial-tracking"
@@ -400,24 +404,12 @@
                 </div>
             </div>
 
-            <!-- Scene Selector - 6 Cảnh -->
+            <!-- Scene Selector - 3 Cảnh -->
             <div class="scene-selector">
-                <button class="scene-btn active" onclick="changeScene('loivao')" data-scene="loivao">
-                    <i class="fas fa-torii-gate"></i>
-                    <span class="scene-name">Lối Vào</span>
-                    <span class="scene-desc">Cổng chính của đình</span>
-                </button>
-
-                <button class="scene-btn" onclick="changeScene('truocdinh')" data-scene="truocdinh">
+                <button class="scene-btn active" onclick="changeScene('truocdinh')" data-scene="truocdinh">
                     <i class="fas fa-square"></i>
                     <span class="scene-name">Trước Đình</span>
                     <span class="scene-desc">Sân trước đình thờ</span>
-                </button>
-
-                <button class="scene-btn" onclick="changeScene('ngoaisan')" data-scene="ngoaisan">
-                    <i class="fas fa-tree"></i>
-                    <span class="scene-name">Ngoài Sân</span>
-                    <span class="scene-desc">Khoảng sân rộng</span>
                 </button>
 
                 <button class="scene-btn" onclick="changeScene('trongdinh')" data-scene="trongdinh">
@@ -430,12 +422,6 @@
                     <i class="fas fa-pray"></i>
                     <span class="scene-name">Bàn Thờ</span>
                     <span class="scene-desc">Khu vực thờ cúng</span>
-                </button>
-
-                <button class="scene-btn" onclick="changeScene('toancanh')" data-scene="toancanh">
-                    <i class="fas fa-eye"></i>
-                    <span class="scene-name">Toàn Cảnh</span>
-                    <span class="scene-desc">Nhìn toàn bộ đình</span>
                 </button>
             </div>
 
@@ -468,38 +454,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Danh sách 6 cảnh với link Polycam
-        // QUAN TRỌNG: Thay thế các link dưới đây bằng link Polycam thực của bạn
+        // Danh sách 3 cảnh với link Polycam thật
         const scenes = {
-            loivao: {
-                url: "https://poly.cam/capture/769D7D25-E4F2-45B7-8B03-2BF286AD3CC6/embed",
-                title: "Lối Vào",
-                icon: "fa-torii-gate"
-            },
             truocdinh: {
-                url: "https://poly.cam/capture/769D7D25-E4F2-45B7-8B03-2BF286AD3CC6/embed", // Thay bằng link thực
+                url: "https://poly.cam/capture/261EA429-A440-410E-89FF-B7110262FF4F/embed",
                 title: "Trước Đình",
                 icon: "fa-square"
             },
-            ngoaisan: {
-                url: "https://poly.cam/capture/769D7D25-E4F2-45B7-8B03-2BF286AD3CC6/embed", // Thay bằng link thực
-                title: "Ngoài Sân",
-                icon: "fa-tree"
-            },
             trongdinh: {
-                url: "https://poly.cam/capture/769D7D25-E4F2-45B7-8B03-2BF286AD3CC6/embed", // Thay bằng link thực
+                url: "https://poly.cam/capture/4CEA79A0-B208-496D-AFC8-2B3F5DAAA04B/embed",
                 title: "Trong Đình",
                 icon: "fa-building"
             },
             bantho: {
-                url: "https://poly.cam/capture/769D7D25-E4F2-45B7-8B03-2BF286AD3CC6/embed", // Thay bằng link thực
+                url: "https://poly.cam/capture/865398A9-10D3-4378-B666-C1E3F4405BCE/embed",
                 title: "Bàn Thờ",
                 icon: "fa-pray"
-            },
-            toancanh: {
-                url: "https://poly.cam/capture/769D7D25-E4F2-45B7-8B03-2BF286AD3CC6/embed", // Thay bằng link thực
-                title: "Toàn Cảnh",
-                icon: "fa-eye"
             }
         };
 
