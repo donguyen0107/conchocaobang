@@ -4,7 +4,7 @@ body {
     background: url('sources/base64-16831973908311976930857.png') no-repeat center center fixed;
     background-size: cover;
     color: #f1f1f1;
-    font-family: "Times New Roman", serif;
+    font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     scroll-behavior: smooth;
 }
 
@@ -231,6 +231,8 @@ body::before {
     margin-bottom: 15px;
     border-bottom: 1px solid rgba(255, 215, 0, 0.3);
     padding-bottom: 6px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
 }
 
 
