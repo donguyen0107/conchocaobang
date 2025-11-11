@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bài Viết - The Time Capsule</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Swiper.js -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../style.css">
+    <!-- Style riêng cho trang bài viết -->
+    <link rel="stylesheet" href="../baiviet.css">
+
+    <style>
+        /* Aurora Text Effect - đồng bộ với index.html */
+        
+        .aurora-text {
+            position: relative;
+            display: inline-block;
+            overflow: visible !important;
+            padding: 15px 25px;
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-weight: 800;
+            letter-spacing: 0px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #faf3e0, #e8d5a0, #c9a961, #b8860b, #c9a961, #e8d5a0);
+            background-size: 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: auroraShiftLux 10s ease infinite;
+            filter: none !important;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            max-width: 90vw;
+        }
+        
+        .aurora-text::before {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: -1;
+            background: linear-gradient(135deg, #faf3e0, #e8d5a0, #c9a961, #b8860b, #c9a961, #e8d5a0);
+            background-size: 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: blur(20px) brightness(1.5);
+            opacity: 0.6;
+            animation: auroraShiftLux 10s ease infinite;
+        }
+        
+        @keyframes auroraShiftLux {
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        .hero-section {
+            overflow: visible !important;
+        }
+        /* Hero subtitle và description - giống index.html */
+        
+        .hero-subtitle {
+            color: #e8d5a0;
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+        
+        .hero-description {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #d0d0d0;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top site-navbar">
+        <div class="container">
+            <!-- Nút toggle sidebar - bên trong container -->
+            <button class="sidebar-toggle-btn" id="sidebarToggleBtn" aria-label="Toggle sidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <a class="navbar-brand site-name animate__animated animate__fadeInDown wave-text" href="/">Time Capsule</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-3">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="baiVietDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Bài viết
+                        </a>
+                        <ul class="dropdown-menu fade-in" aria-labelledby="baiVietDropdown">
+                            <li><a class="dropdown-item" href="#tongquan">Tổng quan</a></li>
+                            <li><a class="dropdown-item" href="#lichsu">Lịch sử</a></li>
+                            <li><a class="dropdown-item" href="#vanhoa">Văn hóa</a></li>
+                            <li><a class="dropdown-item" href="#dulich">Du lịch</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="veChungToiDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Về chúng tôi
+                        </a>
+                        <ul class="dropdown-menu fade-in" aria-labelledby="veChungToiDropdown">
+                            <li><a class="dropdown-item" href="/aboutus#gioithieu">Giới thiệu</a></li>
+                            <li><a class="dropdown-item" href="/aboutus#mucdich">Mục đích</a></li>
+                            <li><a class="dropdown-item" href="/aboutus#loinhangui">Đôi lời nhắn gửi</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="/nguon">Tư liệu</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link project-logo" href="#"><i class="fa fa-landmark"></i> Di sản Việt</a>
+                    </li>
+                    <li class="nav-item nav-item-3d">
+                        <a class="nav-link tour-3d" href="/thamquan3d">
+                            <i class="fas fa-vr-cardboard me-2"></i>Tham quan 3D
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== Hero giống index.html ===== -->
+    <header class="hero-section text-center text-light d-flex align-items-center justify-content-center" id="hero">
+        <div class="hero-content">
+            <p class="animate__animated animate__fadeInUp hero-subtitle">BÀI LUẬN DI SẢN</p>
+            <h1 class="aurora-text animate__animated animate__fadeIn" data-text="Đình Thần An Khánh">Đình Thần An Khánh</h1>
+            <p class="hero-description animate__animated animate__fadeInUp animate__delay-1s">
+                Khám phá giá trị lịch sử – văn hóa – du lịch của di tích hơn 300 năm tuổi
+            </p>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <!-- Overlay cho sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Nội dung chính -->
+    <div class="content-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <ul>
+                <li>
+                    <a href="#tongquan" class="sidebar-link">
+                        <i class="fas fa-info-circle me-2"></i>I. Giới thiệu tổng quan
+                    </a>
+                </li>
+                <li>
+                    <a href="#lichsu" class="sidebar-link">
+                        <i class="fas fa-history me-2"></i>II. Lịch sử phát triển
+                    </a>
+                </li>
+                <li>
+                    <a href="#vanhoa" class="sidebar-link">
+                        <i class="fas fa-theater-masks me-2"></i>III. Giá trị văn hóa
+                    </a>
+                </li>
+                <li>
+                    <a href="#dulich" class="sidebar-link">
+                        <i class="fas fa-plane-departure me-2"></i>IV. Phát triển du lịch
+                    </a>
+                </li>
+            </ul>
+        </aside>
+        <main class="main-content container">
+            <section id="tongquan" class="fade-section reveal">
+                <h2>I. Giới thiệu tổng quan về Đình Thần An Khánh</h2>
+
+                <h3>Đình Thần An Khánh</h3>
+                <p>Đình Thần An Khánh nằm tại số 12/1 đường Lương Định Của (P. Thủ Thiêm, TP Thủ Đức), cạnh Nhà hát Thủ Thiêm và ven sông Sài Gòn, ở vị trí "đắc địa" hướng về trung tâm TP.HCM.</p>
+
+                <p>Trước năm 2022, đình tọa lạc tại khu phố An Khánh (Q.2 cũ), gần bến phà Thủ Thiêm – một khu dân cư truyền thống sầm uất. Đây là một trong ba đình làng chính của vùng Thủ Thiêm (cùng Đình Thủ Thiêm và Đình An Lợi Đông), mang đậm kiến trúc
+                    đình làng Nam Bộ và là trung tâm văn hóa – tín ngưỡng của người dân nơi đây.</p>
+                <img src="../sources/c5-crop-1679036506266.png" class="img-fluid rounded shadow mb-3" alt="Đình Thần An Khánh">
+            </section>
+
+            <section id="lichsu" class="fade-section reveal">
+                <h2>II. Lịch sử hình thành và phát triển</h2>
+
+                <p>Đình Thần An Khánh được xây dựng vào cuối thế kỷ XVII – đầu thế kỷ XVIII (khoảng 1679–1725), là ngôi đình duy nhất của phường An Khánh xưa. Đình từng có sắc phong vua Tự Đức năm 1832, thờ Thành hoàng Trần Thống Quân Hà Quảng Thống Sư.</p>
+
+                <p>Trải qua nhiều biến cố lịch sử, đình phải di dời năm 2014 để phục vụ xây dựng Khu đô thị mới Thủ Thiêm. Đến cuối năm 2022, đình được phục dựng tại vị trí mới ở phường Thủ Thiêm, giữ nguyên kiến trúc đình Nam Bộ với diện tích khoảng 1.200
+                    m².
+                </p>
+
+                <h3>Kiến trúc Đình An Khánh</h3>
+                <p>Ngày 30/3/2025, Đình Thần An Khánh được UBND TP.HCM công nhận là di tích lịch sử – văn hóa cấp thành phố, ghi nhận giá trị hơn 300 năm gắn bó với vùng đất Thủ Thiêm – Gia Định xưa.</p>
+
+                <h3>Lý do lựa chọn Đình Thần An Khánh</h3>
+                <h4>Kiến trúc cổ truyền</h4>
+                <p>Đình Thần An Khánh là một trong những ngôi đình tiêu biểu còn giữ được nét kiến trúc cổ truyền Nam Bộ giữa lòng đô thị hiện đại. Công trình vừa mang giá trị lịch sử hơn 300 năm, vừa thể hiện tinh hoa nghệ thuật dân gian qua những mảng
+                    chạm khắc tinh xảo như bình phong "thần hổ", tượng ngựa và hoành phi cổ.</p>
+
+                <p>Không chỉ là nơi thờ tự linh thiêng, đình còn là trung tâm sinh hoạt văn hóa của người dân Thủ Thiêm, nơi diễn ra các lễ hội truyền thống như lễ Kỳ Yên, góp phần bảo tồn phong tục tín ngưỡng của vùng đất Gia Định xưa.</p>
+
+                <p>Với vị trí đắc địa ven sông Sài Gòn, kiến trúc hài hòa giữa truyền thống và hiện đại, cùng tiềm năng phát triển du lịch văn hóa – tâm linh bền vững, Đình Thần An Khánh xứng đáng được lựa chọn làm đề tài nghiên cứu và giới thiệu để lan
+                    tỏa giá trị di sản địa phương.</p>
+                <img src="../sources/photo-17-16773138382431553681400.png" class="img-fluid rounded shadow mb-3" alt="Đình Thần An Khánh 2">
+            </section>
+
+            <section id="vanhoa" class="fade-section reveal">
+                <h2>III. Giá trị văn hóa</h2>
+                <h3>Hiện vật lịch sử</h3>
+
+                <p>Đình Thần An Khánh là công trình gần 200 năm tuổi, tiêu biểu cho kiến trúc đình làng Nam Bộ với mái ngói âm dương, khung gỗ căm xe, chạm khắc rồng phượng tinh xảo và vị trí ven sông Sài Gòn.</p>
+
+                <p>Nơi đây lưu giữ nhiều hiện vật quý như sắc phong vua Tự Đức (1832), hoành phi, câu đối, trống cổ và ấn tín. Những hiện vật này không chỉ là minh chứng cho giá trị lịch sử mà còn thể hiện nghệ thuật chạm khắc, thư pháp tinh xảo của người
+                    xưa.
+                </p>
+
+                <p>Các chi tiết chạm khắc trên cột, đầu đòn tay, bình phong đều mang hơi thở của nghệ nhân Nam Bộ, với đề tài tứ linh (rồng, lân, quy, phượng), tứ quý (mai, lan, cúc, trúc) và các cảnh sinh hoạt dân gian.</p>
+
+                <h3>Lễ hội truyền thống</h3>
+                <p>Đình còn nổi bật với các lễ hội truyền thống như Lễ Kỳ Yên, hát bội, đờn ca tài tử và múa lân, thu hút khách du lịch tìm hiểu văn hóa phi vật thể Nam Bộ. Những hoạt động này giữ vai trò quan trọng trong việc gìn giữ và phát huy bản sắc
+                    văn hóa địa phương.</p>
+
+                <p>Lễ Kỳ Yên được tổ chức hàng năm vào ngày 15 tháng Giêng âm lịch, là dịp để cộng đồng sum họp, cầu an, tưởng nhớ công đức của Thành hoàng bảo hộ làng.</p>
+
+                <img src="../sources/Z4321694669396_96015.jpg" class="img-fluid rounded shadow mb-3" alt="Kiến trúc Đình An Khánh">
+            </section>
+
+            <section id="dulich" class="fade-section reveal">
+                <h2>IV. Khảo sát thực trạng phục vụ du lịch</h2>
+
+                <h3>1. Đặc điểm thu hút khách du lịch</h3>
+                <p>Đình Thần An Khánh là công trình gần 200 năm tuổi, tiêu biểu cho kiến trúc đình làng Nam Bộ với mái ngói âm dương, khung gỗ căm xe, chạm khắc rồng phượng tinh xảo và vị trí ven sông Sài Gòn. Nơi đây lưu giữ nhiều hiện vật quý như sắc phong
+                    vua Tự Đức (1832), hoành phi, câu đối, trống cổ và ấn tín.</p>
+
+                <h4>Kiến trúc đình làng</h4>
+                <p>Đình còn nổi bật với các lễ hội truyền thống như Lễ Kỳ Yên, hát bội, đờn ca tài tử và múa lân, thu hút khách du lịch tìm hiểu văn hóa phi vật thể Nam Bộ.</p>
+
+                <h3>2. Thực trạng hạ tầng và dịch vụ du lịch</h3>
+                <h4>Vị trí đắc địa</h4>
+                <p>Đình tọa lạc tại khu đô thị Thủ Thiêm, dễ tiếp cận bằng đường bộ và có tiềm năng mở tour đường sông. Khuôn viên rộng, có bãi xe, cây xanh, bảng chỉ dẫn và khu vệ sinh sạch sẽ.</p>
+
+                <p>Tuy nhiên, dịch vụ phụ trợ như quán ăn, cửa hàng lưu niệm và khu triển lãm còn thiếu. Ban Quý tế địa phương đảm nhiệm hướng dẫn du khách nhưng nhân lực còn hạn chế, chưa được đào tạo chuyên nghiệp, thiếu phối hợp với các hướng dẫn viên
+                    du lịch.</p>
+
+                <h3>3. Điểm mạnh và hạn chế</h3>
+                <h4>Điểm mạnh</h4>
+                <ul>
+                    <li>Giá trị lịch sử – văn hóa hơn 300 năm</li>
+                    <li>Lễ hội truyền thống quy mô lớn</li>
+                    <li>Vị trí đắc địa trong khu đô thị hiện đại</li>
+                    <li>Không gian xanh ven sông</li>
+                    <li>Tiềm năng kết nối tour "du lịch về nguồn" và sông nước Nam Bộ</li>
+                </ul>
+
+                <h4>Hạn chế</h4>
+                <ul>
+                    <li>Cơ sở hạ tầng du lịch còn sơ khai</li>
+                    <li>Thiếu dịch vụ ăn uống, lưu niệm</li>
+                    <li>Chưa khai thác đường thủy</li>
+                    <li>Quảng bá hạn chế</li>
+                    <li>Hướng dẫn viên thiếu chuyên môn</li>
+                    <li>Nguy cơ xuống cấp do đô thị hóa và thiếu kinh phí bảo tồn</li>
+                </ul>
+                <img src="../sources/DSC08761.jpg" class="img-fluid rounded shadow mb-3" alt="Lịch sử Đình An Khánh">
+            </section>
+        </main>
+    </div>
+
+    <!-- Footer Premium (BỎ CỘT KẾT NỐI) -->
+    <footer class="site-footer reveal">
+        <div class="footer-container">
+            <div class="footer-about">
+                <div class="footer-logo-wrapper mb-3">
+                    <i class="fas fa-landmark fa-3x" style="color: #d4af37;"></i>
+                </div>
+                <h5 class="mb-3" style="color: #d4af37;">The Time Capsule</h5>
+                <p>Lan tỏa giá trị di sản văn hóa Việt Nam đến thế hệ trẻ và cộng đồng. Cùng nhau bảo tồn và phát huy những giá trị truyền thống quý báu.</p>
+                <div class="footer-social mt-4">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Thông Tin</h4>
+                <a href="#about"><i class="fas fa-angle-right me-2"></i>Về Chúng Tôi</a>
+                <a href="#baiviet"><i class="fas fa-angle-right me-2"></i>Bài Viết</a>
+                <a href="#timhieu"><i class="fas fa-angle-right me-2"></i>Tìm Hiểu</a>
+                <a href="#"><i class="fas fa-angle-right me-2"></i>Liên Hệ</a>
+            </div>
+
+            <div class="footer-links">
+                <h4>Hỗ Trợ</h4>
+                <a href="#"><i class="fas fa-angle-right me-2"></i>Câu Hỏi Thường Gặp</a>
+                <a href="#"><i class="fas fa-angle-right me-2"></i>Điều Khoản Sử Dụng</a>
+                <a href="#"><i class="fas fa-angle-right me-2"></i>Chính Sách Bảo Mật</a>
+                <a href="#"><i class="fas fa-angle-right me-2"></i>Hướng Dẫn</a>
+            </div>
+
+            <!-- BỎ CỘT KẾT NỐI -->
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="footer-bottom">
+            <p>
+                <i class="far fa-copyright me-1"></i>2025
+                <span class="wave-text">The time capsule website</span>. All rights reserved
+            </p>
+            <a href="#hero" class="back-to-top" title="Về đầu trang">
+                <i class="fas fa-arrow-up"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../script.js"></script>
+
+    <!-- Script xử lý sidebar -->
+    <script>
+        const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+        const footer = document.querySelector('.site-footer');
+        const navbarCollapse = document.getElementById('mainNav');
+
+        // Biến theo dõi trạng thái sidebar khi vào/ra footer
+        let wasAutoClosedByFooter = false;
+
+        // Hàm scroll section vào giữa màn hình
+        function scrollToCenter(targetSection) {
+            if (targetSection) {
+                const targetPosition = targetSection.offsetTop;
+                const windowHeight = window.innerHeight;
+                const sectionHeight = targetSection.offsetHeight;
+
+                // Tính toán vị trí để section nằm ở giữa màn hình
+                const scrollToPosition = targetPosition - (windowHeight / 2) + (sectionHeight / 2);
+
+                window.scrollTo({
+                    top: scrollToPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Toggle sidebar khi click nút
+        sidebarToggleBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            sidebarToggleBtn.classList.toggle('active');
+
+            // Reset trạng thái auto-close khi người dùng tự tắt/bật
+            if (!sidebar.classList.contains('active')) {
+                wasAutoClosedByFooter = false;
+            }
+
+            // Đóng navbar nếu đang mở khi bật sidebar
+            if (sidebar.classList.contains('active') && navbarCollapse.classList.contains('show')) {
+                const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: false
+                });
+                bsCollapse.hide();
+            }
+        });
+
+        // Đóng sidebar khi navbar được mở (trên mobile)
+        navbarCollapse.addEventListener('show.bs.collapse', () => {
+            if (sidebar.classList.contains('active')) {
+                sidebar.classList.remove('active');
+                sidebarToggleBtn.classList.remove('active');
+            }
+        });
+
+        // Xử lý click vào link sidebar để scroll mục vào giữa màn hình
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Ngăn hành vi mặc định
+
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                scrollToCenter(targetSection);
+            });
+        });
+
+        // Xử lý click vào link navbar dropdown để scroll mục vào giữa màn hình
+        const dropdownLinks = document.querySelectorAll('.dropdown-menu a[href^="#"]');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Ngăn hành vi mặc định
+
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                scrollToCenter(targetSection);
+            });
+        });
+
+        // Xử lý khi trang được load với hash (ví dụ: baiviet.html#tongquan)
+        window.addEventListener('load', () => {
+            if (window.location.hash) {
+                const targetId = window.location.hash.substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                // Đợi một chút để đảm bảo trang đã load hoàn toàn
+                setTimeout(() => {
+                    scrollToCenter(targetSection);
+                }, 100);
+            }
+        });
+
+        // Active state cho sidebar links khi scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const windowHeight = window.innerHeight;
+            const scrollPosition = window.scrollY + windowHeight / 2; // Vị trí giữa màn hình
+
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const sectionBottom = sectionTop + sectionHeight;
+
+                // Kiểm tra nếu giữa màn hình đang nằm trong section này
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            // Nếu không có section nào khớp, kiểm tra section gần nhất
+            if (!currentSection) {
+                let closestSection = null;
+                let closestDistance = Infinity;
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    const sectionCenter = sectionTop + sectionHeight / 2;
+                    const distance = Math.abs(scrollPosition - sectionCenter);
+
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestSection = section.getAttribute('id');
+                    }
+                });
+
+                currentSection = closestSection;
+            }
+
+            // Cập nhật active state cho links
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Tự động đóng/mở sidebar khi scroll đến/ra khỏi footer
+            if (footer) {
+                const footerTop = footer.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                const isInFooterZone = footerTop < windowHeight * 0.5;
+
+                if (isInFooterZone) {
+                    // Đang ở trong vùng footer - đóng sidebar nếu đang mở
+                    if (sidebar.classList.contains('active') && !wasAutoClosedByFooter) {
+                        wasAutoClosedByFooter = true;
+                        sidebar.classList.add('closing');
+                        setTimeout(() => {
+                            sidebar.classList.remove('active');
+                            sidebar.classList.remove('closing');
+                            sidebarToggleBtn.classList.remove('active');
+                        }, 300);
+                    }
+                } else {
+                    // Đang ở ngoài vùng footer - mở sidebar lại nếu đã tự động đóng trước đó
+                    if (wasAutoClosedByFooter && !sidebar.classList.contains('active')) {
+                        wasAutoClosedByFooter = false;
+                        sidebar.classList.add('active');
+                        sidebarToggleBtn.classList.add('active');
+                    }
+                }
+            }
+        });
+
+        // Set active cho link đầu tiên khi load trang
+        if (sidebarLinks.length > 0) {
+            sidebarLinks[0].classList.add('active');
+        }
+
+        // Back to top button
+        const backToTopBtn = document.querySelector('.back-to-top');
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>
