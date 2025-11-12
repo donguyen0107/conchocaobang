@@ -18,6 +18,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+    <!-- Chatbot CSS -->
+    <link rel="stylesheet" href="chatbot.css">
 
     <style>
         body {
@@ -167,11 +169,11 @@
         .polycam-embed:hover {
             border-color: rgba(212, 175, 55, 0.5);
         }
-        /* Scene Selector - 3 Cảnh */
+        /* Scene Selector - 4 Cảnh */
         
         .scene-selector {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
             margin-top: 2rem;
             padding: 0 1rem;
@@ -447,7 +449,7 @@
     <section class="hero-3d">
         <div class="container">
             <h1 class="aurora-text" data-text="Tham Quan 360°"><i class="fas fa-vr-cardboard me-3"></i>Tham Quan 360°</h1>
-            <p>Khám phá Đình Thần An Khánh qua 3 không gian khác nhau. Chọn cảnh bên dưới để khám phá.</p>
+            <p>Khám phá Đình Thần An Khánh qua 4 không gian khác nhau. Chọn cảnh bên dưới để khám phá.</p>
         </div>
     </section>
 
@@ -475,7 +477,7 @@
                 </div>
             </div>
 
-            <!-- Scene Selector - 3 Cảnh -->
+            <!-- Scene Selector - 4 Cảnh -->
             <div class="scene-selector">
                 <button class="scene-btn active" onclick="changeScene('truocdinh')" data-scene="truocdinh">
                     <i class="fas fa-torii-gate"></i>
@@ -493,6 +495,12 @@
                     <i class="fas fa-pray"></i>
                     <span class="scene-name">Bàn Thờ</span>
                     <span class="scene-desc">Khu vực thờ cúng</span>
+                </button>
+
+                <button class="scene-btn" onclick="changeScene('saudinh')" data-scene="saudinh">
+                    <i class="fas fa-tree"></i>
+                    <span class="scene-name">Phía Sau Đình</span>
+                    <span class="scene-desc">Khu vực phía sau</span>
                 </button>
             </div>
 
@@ -543,7 +551,7 @@
     </script>
 
     <script>
-        // Danh sách 3 cảnh với link Polycam thật
+        // Danh sách 4 cảnh với link Polycam thật
         const scenes = {
             truocdinh: {
                 url: "https://poly.cam/capture/e8194a3b-0c60-4074-8d5a-d61dfc3c0447/embed",
@@ -559,6 +567,11 @@
                 url: "https://poly.cam/capture/2fb400dd-7337-43ac-bde8-45269b453935/embed",
                 title: "Bàn Thờ",
                 icon: "fa-pray"
+            },
+            saudinh: {
+                url: "https://poly.cam/capture/E7A52864-048A-4C73-B258-E50176F93351/embed",
+                title: "Phía Sau Đình",
+                icon: "fa-tree"
             }
         };
 
@@ -608,6 +621,8 @@
             });
         }
     </script>
+    <!-- Chatbot Script -->
+    <script src="chatbot-history.js"></script>
 </body>
 
 </html>
