@@ -63,30 +63,75 @@ VII. GIÁ TRỊ VĂN HÓA:
 - Điểm giáo dục truyền thống cho thế hệ trẻ
 - Biểu tượng giao thoa hiện đại và truyền thống
 
+=== CẤU TRÚC WEBSITE ===
+
+VIII. ĐIỀU HƯỚNG WEBSITE:
+**Trang chủ: index.html**
+- Hero section: Giới thiệu Đình Thần An Khánh
+- Phần Bài viết: Carousel hình ảnh đẹp về đình
+- Phần Tìm Hiểu: 3 mảng Lịch sử, Du lịch, Văn hóa
+- Phần Về Chúng Tôi: Video giới thiệu dự án
+- Phần Bình luận: Chia sẻ của cộng đồng
+
+**Bài viết: baiviet.html - Có 4 mục chính:**
+- baiviet.html#tongquan → Giới thiệu tổng quan về Đình Thần An Khánh
+- baiviet.html#lichsu → Lịch sử hình thành hơn 300 năm, kiến trúc, sắc phong
+- baiviet.html#vanhoa → Giá trị văn hóa, hiện vật lịch sử, lễ hội truyền thống
+- baiviet.html#dulich → Khảo sát phát triển du lịch, điểm mạnh và hạn chế
+
+**Về chúng tôi: aboutus.html - Có 3 phần:**
+- aboutus.html#gioithieu → The Time Capsule Project - dự án của nhóm học sinh CTin2528 Trần Chuyên
+- aboutus.html#mucdich → Mục tiêu bảo tồn và phát triển du lịch di tích, lan tỏa văn hóa lịch sử
+- aboutus.html#loinhangui → Lời cảm ơn và mong muốn từ nhóm dự án
+
+**Tư liệu: nguon.html**
+- Danh sách nguồn tham khảo từ các báo: SGGP, Tuổi Trẻ, Lao Động, PLO, Tiền Phong, VnExpress
+- Liên kết tư liệu gốc để nghiên cứu
+
+**Tham quan 3D: thamquan3d.html**
+- 4 cảnh 360° tương tác: Trước Đình, Trong Đình, Bàn Thờ, Phía Sau Đình
+- Trải nghiệm ảo (VR) qua công nghệ Polycam
+- Xem chi tiết kiến trúc và không gian từng khu vực
+
+**Liên kết mạng xã hội:**
+- Facebook: https://www.facebook.com/profile.php?id=61582886772263
+- YouTube: https://www.youtube.com/channel/UCdkDmgj5qK6Ui9_KyzhYaWg
+
 === CÁCH TRẢ LỜI ===
 1. Trả lời MỌI câu hỏi người dùng hỏi - không từ chối bất kỳ chủ đề nào
 2. Khi được hỏi về Đình Thần An Khánh: Sử dụng kiến thức trên, trả lời chi tiết, chính xác
-3. Trả lời bằng tiếng Việt, thân thiện, chuyên nghiệp
-4. Sử dụng định dạng rõ ràng với đầu dòng, in đậm các điểm quan trọng
-5. Luôn sẵn sàng giải thích thêm nếu được hỏi`;
+3. **Khi được hỏi về điều hướng website:**
+   - **QUAN TRỌNG: KHÔNG hiển thị link/đường dẫn trực tiếp (baiviet.html, aboutus.html...)**
+   - Hướng dẫn bằng cách diễn giải tự nhiên
+   - Ví dụ đúng: "Bạn có thể xem trong mục **Lịch sử** ở trang **Bài viết**"
+   - Ví dụ đúng: "Click vào menu **Bài viết** → chọn **Lịch sử**"
+   - Ví dụ đúng: "Vào trang **Tham quan 3D** để trải nghiệm không gian 360°"
+   - **KHÔNG viết: baiviet.html#lichsu, /thamquan3d, hay bất kỳ đường dẫn nào**
+4. **Khi người dùng muốn xem thông tin cụ thể:**
+   - Giới thiệu trang/mục phù hợp bằng tên thân thiện
+   - Ví dụ: "Muốn xem lịch sử chi tiết? Vào mục **Lịch sử** trong trang **Bài viết** nhé!"
+   - Ví dụ: "Muốn tham quan ảo? Ghé qua trang **Tham quan 3D** - có 4 cảnh 360° đẹp lắm!"
+5. Trả lời bằng tiếng Việt, thân thiện, chuyên nghiệp, gần gũi
+6. Sử dụng định dạng rõ ràng với đầu dòng, in đậm các điểm quan trọng
+7. Luôn sẵn sàng giải thích thêm nếu được hỏi`;
 
 // Configuration
 let conversationHistory = [];
 let apiConfig = {
-    provider: 'groq',
-    apiKey: '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' // API key mặc định đã được tích hợp sẵn
+    provider: 'gemini',
+    apiKey: 'AIzaSyDc-rD0XxFz12EuRrg8EEvwHT-o2C70_fI' // API key Gemini đã được tích hợp sẵn
 };
 
 const API_ENDPOINTS = {
     groq: 'https://api.groq.com/openai/v1/chat/completions',
     openai: 'https://api.openai.com/v1/chat/completions',
-    gemini: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent'
+    gemini: 'https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent'
 };
 
 const MODELS = {
     groq: 'llama-3.3-70b-versatile',
     openai: 'gpt-3.5-turbo',
-    gemini: 'gemini-pro'
+    gemini: 'gemini-2.5-flash'
 };
 
 // Initialize chatbot on page load
@@ -136,11 +181,11 @@ function createChatbotWidget() {
                 <button onclick="sendQuickMessage('Đình Thần An Khánh ở đâu?')" class="chatbot-quick-btn">
                     📍 Vị trí
                 </button>
-                <button onclick="sendQuickMessage('Lịch sử của đình')" class="chatbot-quick-btn">
-                    📜 Lịch sử
+                <button onclick="sendQuickMessage('Tôi muốn xem tham quan 3D')" class="chatbot-quick-btn">
+                    🏛️ Tham quan 3D
                 </button>
-                <button onclick="sendQuickMessage('Lễ hội gì ở đình?')" class="chatbot-quick-btn">
-                    🎭 Lễ hội
+                <button onclick="sendQuickMessage('Hướng dẫn sử dụng website')" class="chatbot-quick-btn">
+                    🗺️ Hướng dẫn
                 </button>
             </div>
 
@@ -149,10 +194,14 @@ function createChatbotWidget() {
                     <div class="message-avatar">🤖</div>
                     <div class="message-content">
                         <strong>Xin chào! Tôi là AI Chatbot 🏛️</strong><br><br>
-                        Tôi có thể trả lời <strong>MỌI câu hỏi</strong> của bạn - không chỉ về Đình Thần An Khánh mà còn về bất kỳ chủ đề nào!<br><br>
-                        📜 <strong>Về Đình Thần An Khánh:</strong> Lịch sử 300 năm, kiến trúc, lễ hội, du lịch...<br>
-                        🌍 <strong>Chủ đề khác:</strong> Lập trình, toán học, lịch sử, nấu ăn, bất cứ điều gì!<br><br>
-                        💬 Hãy thử hỏi tôi ngay!
+                        Tôi có thể giúp bạn:<br><br>
+                        📜 <strong>Về Đình Thần An Khánh:</strong> Lịch sử 300 năm, kiến trúc, lễ hội, du lịch, văn hóa...<br>
+                        🗺️ <strong>Hướng dẫn sử dụng website:</strong> Tìm thông tin, điều hướng các trang<br>
+                        🌍 <strong>Chủ đề khác:</strong> Lập trình, toán học, lịch sử, bất cứ điều gì!<br><br>
+                        💡 <strong>Thử hỏi tôi:</strong><br>
+                        • "Đình ở đâu?"<br>
+                        • "Tôi muốn xem tham quan 3D"<br>
+                        • "Lịch sử đình như thế nào?"
                     </div>
                 </div>
                 <div class="chatbot-typing" id="chatbot-typing">
