@@ -119,7 +119,7 @@ VIII. ĐIỀU HƯỚNG WEBSITE:
 let conversationHistory = [];
 let apiConfig = {
     provider: 'gemini',
-    apiKey: 'AIzaSyDot2fQpLIxBQ8h4NrWgWSiZp6ySS6htX0' // API key Gemini đã được tích hợp sẵn
+    apiKey: 'AIzaSyDc-rD0XxFz12EuRrg8EEvwHT-o2C70_fI' // API key Gemini đã được tích hợp sẵn
 };
 
 const API_ENDPOINTS = {
@@ -573,5 +573,3 @@ function hideChatbotTyping() {
         typing.style.display = 'none';
     }
 }
-
-
