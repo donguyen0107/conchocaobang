@@ -573,4 +573,3 @@ function hideChatbotTyping() {
         typing.style.display = 'none';
     }
 }
-
